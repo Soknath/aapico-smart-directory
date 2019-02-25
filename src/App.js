@@ -6,7 +6,7 @@ const NavBar = () => (
   <div className="navbar">
     <h3>Task Manager</h3>
     <Link to="/">Current Tasks</Link>
-    <Link to="/profile">Completed Tasks</Link>
+    <Link to="/completed">Completed Tasks</Link>
   </div>
 );
 
@@ -15,12 +15,12 @@ const Template = (props) => (
     <NavBar />
     <p className="page-info">
       {props.title}:
-      <ul className={props.status}>
+    </p>
+    <ul className={props.status}>
         <li>Task 1</li>
         <li>Task 2</li>
         <li>Task 3</li>
-      </ul>
-    </p>
+    </ul>
   </div>
 );
 
@@ -38,7 +38,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Route exact path="/" component={CurrentTasks}/>
-          <Route path="/profile" component={CompletedTasks}/>
+          <Route path="/completed" component={CompletedTasks}/>
         </div>
       </BrowserRouter>
     );
