@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "staging": "pwa-task-manager-fca42"
+  }
+}
