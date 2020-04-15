@@ -12,3 +12,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media (max-width: 576px){
+  .control-panel {
+      width: 100%;
+  }
+}
+
+
+@media (max-width: 576px){
+  .language-control-panel {
+      width: 100%;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      align-items: flex-end;
+  }
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #08f;
+}
+
+.switch-wrapper {
+  position: relative;
+}
+ 
+.switch-wrapper > div {
+  position: absolute;
+}
+
+#setup_button {
+  display: none;
+}

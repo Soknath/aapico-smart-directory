@@ -1,48 +1,30 @@
-var CACHE_NAME = 'pwa-task-manager';
-var urlsToCache = [
-  '/',
-  '/completed'
-];
 
-// Install a service worker
-self.addEventListener('install', event => {
-  // Perform install steps
+let notificationUrl = '';
+self.addEventListener('push', function (event) {
+  console.log('Push received: ', event);
+  let _data = event.data ? JSON.parse(event.data.text()) : {};
+  notificationUrl = _data.url;
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+      self.registration.showNotification(_data.title, {
+          body: _data.message,
+          icon: _data.icon,
+          tag: _data.tag
       })
   );
 });
 
-// Cache and return requests
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
-});
+//notification url redirect event click
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close();
 
-// Update a service worker
-self.addEventListener('activate', event => {
-  var cacheWhitelist = ['pwa-task-manager'];
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
+      clients.matchAll({
+          type: "window"
+      })
+      .then(function (clientList) {
+          if (clients.openWindow) {
+              return clients.openWindow(notificationUrl);
           }
-        })
-      );
-    })
+      })
   );
 });
