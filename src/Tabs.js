@@ -97,8 +97,9 @@ class TabView extends Component {
       <BottomNavigation value={this.state.componentName} onChange={this.handleChange} className={classes.stickToBottom} >
         <BottomNavigationAction label="AAPICO" value="companies" icon={<HomeWorkIcon />}/>
         <BottomNavigationAction label="Employees" value="employees" icon={<PeopleIcon />} />
-        <BottomNavigationAction label="Check-in" value="checkin" icon={<RoomIcon />} />
-        <BottomNavigationAction label="Setting" value="personalinfo" icon={<SettingsIcon />} />
+        {/* <BottomNavigationAction label="Check-in" value="checkin" icon={<RoomIcon />} />
+        <BottomNavigationAction label="Setting" value="personalinfo" icon={<SettingsIcon />}  */}
+        />
       </BottomNavigation>
       <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
       </>
