@@ -26,14 +26,14 @@
     "react-router-dom": "^4.3.1",
     "react-router-scroll": "^0.4.4",
     "react-router-scroll-memory": "^2.0.5",
-    "react-scripts": "2.1.5",
+    "react-scripts": "5.0.1",
     "react-scroll-manager": "^1.0.2",
     "react-spinners": "^0.8.0",
     "react-table": "^7.0.4",
     "react-transition-group": "^4.3.0",
     "react-virtualized-auto-sizer": "^1.0.2",
     "react-window": "^1.8.5",
-    "tabletop": "^1.6.2",
+    "tabletop": "^1.6.3",
     "yup": "^0.28.3"
   },
   "scripts": {
